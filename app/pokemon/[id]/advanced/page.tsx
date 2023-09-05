@@ -4,14 +4,17 @@ import transformName from "@/app/utils/transformName";
 
 type Ctx = { params: { id: string } };
 
-export async function fetchPokemonCharacteristics (id: string | number): Promise<PokemonLocationArea[]> {
-  return fetch(`${BASE_API}/${id}/encounters`).then((val) => val.json());
+async function pokemonData (id: string | number): Promise<PokemonLocationArea[]> {
+  return fetch(`${BASE_API}/${id}/encounters`, {
+      next: {
+        revalidate: 120,
+      }
+    }).then((val) => val.json());
 }
 
 export default async function PokemonCharacteristics({ params }: Ctx) {
   
-  const data: PokemonLocationArea[] = 
-    await fetchPokemonCharacteristics(params.id);
+  const data: PokemonLocationArea[] = await pokemonData(params.id);
   
   return (
     <section className="w-4/5 mx-auto mt-16 text-white">

@@ -5,7 +5,7 @@ type Props = {
   offset: string | number;
 }
 
-export async function getAllPokemons(offset: string | number): Promise<PokemonsApiResponse> {
+async function getAllPokemons(offset: string | number): Promise<PokemonsApiResponse> {
   if(isNaN(Number(offset))) throw new Error('invalid params');
 
   if(offset === 0) 

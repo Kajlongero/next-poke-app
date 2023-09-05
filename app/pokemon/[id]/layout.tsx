@@ -26,7 +26,7 @@ export async function generateMetadata ({ params }: Ctx): Promise<Metadata> {
   }
 }
 
-export async function getUniquePokemon(id: string | number): Promise<Pokemon> {
+async function getUniquePokemon(id: string | number): Promise<Pokemon> {
   if(isNaN(Number(id))) throw new Error ('invalid identifier');
   
   return fetch(`${BASE_API}/${id}`, {
