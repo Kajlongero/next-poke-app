@@ -17,6 +17,16 @@ body {
   background-color: #1a1a1a;
 }
 
+.bg-custom-purple {
+  background-color: rgb(153, 75, 200);
+}
+.color-custom-purple {
+  color: rgb(153, 75, 200);
+}
+.shadow-custom-purple {
+  box-shadow: 2px 2px 0px 2px rgb(153, 75, 200);
+}
+
 .color-custom-dark {
   color: #1a1a1a;
 }

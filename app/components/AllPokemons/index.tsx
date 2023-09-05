@@ -27,9 +27,11 @@ export default async function AllPokemons({ offset }: Props) {
         const id = url.split('/').at(-2) as string;
         return (
           <PokemonCard 
-            key={`pokemon-id-${id}`} 
-            name={name} 
             id={id} 
+            name={name} 
+            width={225}
+            height={225}
+            key={`pokemon-id-${id}`} 
           />
         )
       })}
